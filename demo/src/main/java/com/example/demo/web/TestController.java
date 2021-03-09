@@ -1,15 +1,33 @@
 package com.example.demo.web;
 
 
-import org.springframework.stereotype.Controller;
+import com.example.demo.domain.TestTransactionDomain;
+import com.example.demo.service.TestService;
+import lombok.Builder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 public class TestController {
 
-@RequestMapping(value = "/api/student")
-    public String Test (){
-        return "OKay";
+    Logger logger = LoggerFactory.getLogger(TestController.class);
+
+    @Autowired
+    private TestService testService;
+
+    @RequestMapping(value = "/api/v1/test",
+                    method = RequestMethod.GET,
+                    produces = "application/json")
+    public ResponseEntity<?> Test (){
+        logger.info("");
+        TestTransactionDomain testTransactionDomain = testService.getTransactionDetails();
+        return ResponseEntity.ok(testTransactionDomain);
     }
 }
+

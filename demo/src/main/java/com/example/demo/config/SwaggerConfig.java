@@ -33,7 +33,7 @@ public class SwaggerConfig {
 
 	private Predicate<String> studentsPaths() {
 		return Predicates.or(
-				regex("/api/student.*"),
+				regex("/api/v1/test.*"),
 				regex("/api/courses.*"));
 	}
 
