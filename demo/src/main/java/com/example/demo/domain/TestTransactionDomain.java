@@ -2,9 +2,9 @@ package com.example.demo.domain;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 
 @Data
+@Builder
 public class
 TestTransactionDomain {
     public String value1;

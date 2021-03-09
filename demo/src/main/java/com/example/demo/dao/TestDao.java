@@ -12,8 +12,12 @@ import org.springframework.stereotype.Component;
 public class TestDao implements TestDaoImpl {
 
     @Override
-    public TestTransactionDomain getTransactionDetails() {
-        Logger logger = LoggerFactory.getLogger(TestController.class);
+    public TestTransactionDomain getTransactionDetails(String Id) {
+
+        Logger logger = LoggerFactory.getLogger(TestTransactionDomain.class);
+
+        //Builder design pattern can we used instead of assigning the values individually. Facing some
+        //maven dependency issues.
 
         TestTransactionDomain testTransactionDomain = new TestTransactionDomain();
         testTransactionDomain.setValue1("1");

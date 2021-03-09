@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TestService {
+
     @Autowired
     private TestDao testDao;
 
-    public TestTransactionDomain getTransactionDetails(){
-        Logger logger = LoggerFactory.getLogger(TestController.class);
-        return testDao.getTransactionDetails();
+    public TestTransactionDomain getTransactionDetails(String Id){
+        Logger logger = LoggerFactory.getLogger(TestDao.class);
+        return testDao.getTransactionDetails(Id);
     }
-
 }
